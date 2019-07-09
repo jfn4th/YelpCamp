@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 	// Get all campgrounds from DB
 	Campground.find({})
 		.then((allCampgrounds) => {
-			res.render('campgrounds/index', { campgrounds: allCampgrounds });
+			res.render('campgrounds/index', { campgrounds: allCampgrounds, page: 'campgrounds' });
 		})
 		.catch((err) => {
 			console.log('ERROR:', err);
