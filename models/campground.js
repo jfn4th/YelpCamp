@@ -6,6 +6,7 @@ const campgroundSchema = new mongoose.Schema({
 	image: String,
 	description: String,
 	price: String,
+	createdAt: { type: Date, degault: Date.now },
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

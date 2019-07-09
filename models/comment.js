@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // SCHEMA SETUP
 const commentSchema = new mongoose.Schema({
 	text: String,
+	createdAt: { type: Date, degault: Date.now },
 	author: {
 		id: {
 			type: mongoose.Schema.Types.ObjectId,
