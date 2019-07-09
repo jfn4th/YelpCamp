@@ -18,7 +18,7 @@ require('dotenv').config();
 // mongoDB connection
 mongoose
 	.connect(
-		`${process.env.mongoURL}`,
+		process.env.DATABASEURL,
 		{
 			useNewUrlParser: true,
 			useCreateIndex: true
@@ -43,7 +43,7 @@ mongoose.set('useFindAndModify', false);
 // PASSPORT CONFIGURATION
 app.use(
 	require('express-session')({
-		secret: process.env.secret,
+		secret: process.env.SECRET,
 		resave: false,
 		saveUninitialized: false
 	})
