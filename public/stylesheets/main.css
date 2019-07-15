@@ -18,3 +18,8 @@
 	width: 30%; 
 	margin: 25px auto;
 }
+
+#map {
+	height: 400px;
+	width: 100%;
+}
