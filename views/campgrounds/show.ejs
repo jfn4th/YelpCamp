@@ -18,7 +18,8 @@
                 <h4><a><%= campground.name %></a></h4>
                 <p><%= campground.description %></p>
                 <p>
-                    <em>Submitted by: <%= campground.author.username %>,
+                    <em>Submitted by: <a
+                            href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>,
                         <%= moment(campground.createdAt).fromNow() %></em>
                 </p>
                 <% if (currentUser) { %>
