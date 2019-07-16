@@ -88,6 +88,7 @@
         });
     }
 </script>
-<script async defer src=process.env.GEOCODER_API_KEY></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.API_KEY %>&callback=initMap"></script>
 
 <% include ../partials/footer %>
