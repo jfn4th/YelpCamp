@@ -4,11 +4,11 @@ const Comment = require('../models/comment');
 
 const middlewareObj = {};
 
-middlewareObj.checkCampgroundOwnership = function(req, res, next) {
+middlewareObj.checkCampgroundOwnership = function (req, res, next) {
 	if (req.isAuthenticated()) {
 		Campground.findById(req.params.id)
 			.then((foundCampground) => {
-				if (foundCampground.author.id.equals(req.user._id)) {
+				if (foundCampground.author.id.equals(req.user._id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash('error', "You don't have permission to do that!");
@@ -26,11 +26,11 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next) {
 	}
 };
 
-middlewareObj.checkCommentOwnership = function(req, res, next) {
+middlewareObj.checkCommentOwnership = function (req, res, next) {
 	if (req.isAuthenticated()) {
 		Comment.findById(req.params.comment_id)
 			.then((foundComment) => {
-				if (foundComment.author.id.equals(req.user._id)) {
+				if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) {
 					next();
 				} else {
 					req.flash('error', "You don't have permission to do that!");
@@ -48,7 +48,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
 	}
 };
 
-middlewareObj.isLoggedIn = function(req, res, next) {
+middlewareObj.isLoggedIn = function (req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
 	}
