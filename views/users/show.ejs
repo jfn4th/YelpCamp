@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-md-4">
         <h1><%= `${user.firstName} ${user.lastName}` %></h1>
-        <div class="thumbnail">
-            <img src="<%= user.avatar %>" alt="User Profile Image">
+        <div class="card">
+            <img src="<%= user.avatar %>" class="card-img" alt="User Profile Image">
         </div>
         <div class="caption">
             <a href="mailto:<%= user.email %>"><%= user.email %></a>
