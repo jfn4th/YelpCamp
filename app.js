@@ -1,6 +1,7 @@
 const express = require('express'),
 	app = express(),
 	campgroundRoutes = require('./routes/campgrounds'),
+	passwordRoutes = require('./routes/passwords'),
 	commentRoutes = require('./routes/comments'),
 	methodOverride = require('method-override'),
 	LocalStrategy = require('passport-local'),
@@ -71,6 +72,7 @@ app.use((req, res, next) => {
 
 // requiring routes
 app.use(indexRoutes);
+app.use(passwordRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
